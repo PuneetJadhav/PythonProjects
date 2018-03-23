@@ -1,9 +1,4 @@
 
-# coding: utf-8
-
-# In[9]:
-
-
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -17,39 +12,18 @@ plt.rcParams['figure.figsize']= 10,12
 plt.rcParams["patch.force_edgecolor"] = True
 get_ipython().magic('matplotlib inline')
 
-
-# In[10]:
-
-
 movies=pd.read_csv('Movie-Ratings (1).csv')
 movies.head()
 movies.columns=['Film','Genre','CriticsRatings','AudienceRatings','Budget','ReleaseYear']
 movies['ReleaseYear']=movies['ReleaseYear'].astype('object')
 
-
-# In[11]:
-
-
 sns.set_style('darkgrid')
-
-
-
-# In[12]:
-
 
 ##Stacked Histograms 
 genre_array=movies.Genre.unique()
 
-
-# In[13]:
-
-
 genre_array
 genre_label=list()
-
-
-# In[14]:
-
 
 for genre in genre_array:
     if genre=='Comedy':
@@ -73,10 +47,6 @@ for genre in genre_array:
     else:
         thriller_budget=movies[movies.Genre=='Thriller']['Budget']
         genre_label.append(genre)
-
-
-# In[17]:
-
 
 ### create a stacked histograms in matplotlib
 combined_list=[comedy_budget,adventure_budget,action_budget,horror_budget,drama_budget,romance_budget,thriller_budget]
